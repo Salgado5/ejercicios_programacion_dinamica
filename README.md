@@ -1,10 +1,10 @@
 # Tarea — Algoritmos Ávidos y Programación Dinámica
 
-**Informe**
+## Informe
 
-**Jose Manuel Salgado**
+## Jose Manuel Salgado
 
-**Ingeniería de sistemas**
+## Ingeniería de sistemas
 
 
 ## Resumen
