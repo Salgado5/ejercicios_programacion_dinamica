@@ -1,12 +1,43 @@
 # Tarea — Algoritmos Ávidos y Programación Dinámica
 
 **Informe**
+<<<<<<< HEAD
 
 **Jose Manuel Salgado**
 
 **Ingeniería de sistemas**
+=======
+>>>>>>> 1b1eb2d (Actualizado el README)
 
-Soluciones a 4 problemas reales de ingeniería, implementadas en Python (código comentado) con análisis de complejidad.
+**Jose Manuel Salgado** 
+
+**Ingeniera en sistemas**
+
+## Resumen
+
+Este informe presenta la solución de cuatro problemas de ingeniería mediante algoritmos ávidos (*greedy*) y programación dinámica, implementados en Python con código comentado. Se resolvieron: la dispensación de billetes en un cajero automático (Greedy), la compresión de logs de un servidor (Huffman), la selección de una cartera de inversión en startups (Knapsack 0/1) y la comparación de dos versiones de un archivo de configuración (LCS). En cada caso se muestra la traza paso a paso, las tablas construidas, la solución obtenida y el análisis de complejidad en tiempo y espacio. Entre los hallazgos principales están que Greedy deja de ser óptimo al agregar un billete de $7.000 y que el monto de 87.500 COP no puede dispensarse exacto con las denominaciones dadas (quedan 500 COP). Con Huffman se logró un ahorro del 31,61 % frente a un código de longitud fija; con Knapsack se obtuvo un ROI máximo de $20M, y con LCS se encontró una subsecuencia común de longitud 11 (`DELOP-DB-01`).
+
+**Palabras clave:** algoritmos ávidos, programación dinámica, Huffman, Knapsack 0/1, LCS, complejidad algorítmica.
+
+## Introducción
+
+Muchos problemas de ingeniería consisten en elegir la mejor solución entre un gran número de posibilidades: repartir billetes, comprimir información, asignar un presupuesto limitado o detectar diferencias entre versiones de un archivo. Probar todas las combinaciones suele ser inviable, por lo que se recurre a estrategias algorítmicas que reducen el trabajo.
+
+Los **algoritmos ávidos (greedy)** construyen la solución tomando en cada paso la mejor decisión local. Son rápidos y sencillos, pero solo garantizan el óptimo global cuando el problema cumple ciertas propiedades; el caso del cambio de billetes muestra cómo puede fallar. El algoritmo de **Huffman** es un caso donde la estrategia greedy sí es óptima. La **programación dinámica**, en cambio, divide el problema en subproblemas que se solapan, guarda sus resultados en una tabla y los reutiliza, garantizando el óptimo. Se aplica aquí en el problema de la mochila 0/1 (*Knapsack*) y en la subsecuencia común más larga (*LCS*).
+
+En este trabajo se implementan los cuatro algoritmos sobre casos de contexto realista, se muestran sus trazas y tablas, y se analiza su complejidad.
+
+## Objetivo general
+
+Aplicar algoritmos ávidos y programación dinámica a problemas reales de ingeniería, implementando y analizando las soluciones.
+
+## Objetivos específicos
+
+1. Implementar el algoritmo greedy para el cambio de billetes de un cajero automático, mostrar su traza completa y verificar si sigue siendo óptimo al modificar las denominaciones.
+2. Construir el árbol de Huffman paso a paso, asignar códigos binarios y calcular el porcentaje de espacio ahorrado frente a una codificación sin compresión.
+3. Construir la tabla de programación dinámica del problema Knapsack 0/1 e identificar mediante backtracking la cartera de inversión óptima.
+4. Calcular la LCS entre dos versiones de un archivo de configuración, mostrar la tabla dp completa, reconstruir la subsecuencia por backtracking e interpretar su significado en el control de versiones.
+5. Determinar la complejidad en tiempo y espacio de cada solución.
 
 ## Estructura del repositorio
 
@@ -196,4 +227,21 @@ La LCS es la parte que se **conserva sin cambios** entre ambas versiones (11 de 
 
 ---
 
+## Resumen de complejidades
 
+| Problema | Técnica | Tiempo | Espacio |
+|---|---|---|---|
+| 1. Cajero | Greedy | O(n log n) (≈ O(1) con n fijo) | O(n) |
+| 2. Logs | Huffman (greedy + heap) | O(n log n) | O(n) |
+| 3. Inversión | Prog. dinámica (Knapsack 0/1) | O(n·W) | O(n·W) (O(W) optimizado) |
+| 4. Versiones | Prog. dinámica (LCS) | O(m·n) | O(m·n) (O(min(m,n)) optimizado) |
+
+---
+
+## Conclusiones
+
+1. **Greedy es rápido pero no siempre óptimo.** Con las denominaciones [50.000, 20.000, 10.000, 5.000, 1.000] cada billete es múltiplo de los menores y greedy funciona bien. Al agregar el billete de $7.000 deja de ser óptimo (para 12.000 usa 3 billetes cuando bastan 2), por lo que en ese caso conviene programación dinámica. Además, 87.500 COP no puede dispensarse exacto porque el billete mínimo es de 1.000: siempre hay que validar que el monto sea realizable.
+2. **Huffman reduce el tamaño de los datos aprovechando la frecuencia.** Las palabras más repetidas (INFO, DEBUG) reciben códigos cortos y las menos frecuentes (WARN, TRACE) códigos largos. Se usan 595 bits frente a 870 con longitud fija, un ahorro del 31,61 % (94,28 % frente a texto ASCII), con una complejidad de O(n log n).
+3. **Knapsack 0/1 permite decidir bajo restricciones de presupuesto.** La cartera óptima (HealthTech + AI Startup + GreenTech) usa los $10M completos y rinde $20M. Un criterio puramente local, como elegir primero el mayor ROI individual, no basta: la tabla dp compara todas las combinaciones sin recalcular subproblemas, con costo O(n·W).
+4. **LCS formaliza la idea de "lo que no cambió" entre versiones.** La subsecuencia `DELOP-DB-01` (11 de 17 caracteres) muestra qué se conserva entre ambas versiones y qué fue eliminado o añadido, que es el fundamento de herramientas como `diff` y git.
+5. **La elección del algoritmo depende del problema.** Greedy y Huffman ofrecen soluciones rápidas (O(n log n)) cuando la estructura del problema lo permite; la programación dinámica garantiza el óptimo a cambio de más tiempo y memoria (O(n·W) y O(m·n)), que se pueden reducir si solo se necesita el valor y no la solución completa.
