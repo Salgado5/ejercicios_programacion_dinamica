@@ -1,17 +1,11 @@
 # Tarea — Algoritmos Ávidos y Programación Dinámica
 
 **Informe**
-<<<<<<< HEAD
 
 **Jose Manuel Salgado**
 
 **Ingeniería de sistemas**
-=======
->>>>>>> 1b1eb2d (Actualizado el README)
 
-**Jose Manuel Salgado** 
-
-**Ingeniera en sistemas**
 
 ## Resumen
 
