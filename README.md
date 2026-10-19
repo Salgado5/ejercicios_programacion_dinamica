@@ -7,6 +7,8 @@
 ## Ingeniería de sistemas
 
 
+
+
 ## Resumen
 
 Este informe presenta la solución de cuatro problemas de ingeniería mediante algoritmos ávidos (*greedy*) y programación dinámica, implementados en Python con código comentado. Se resolvieron: la dispensación de billetes en un cajero automático (Greedy), la compresión de logs de un servidor (Huffman), la selección de una cartera de inversión en startups (Knapsack 0/1) y la comparación de dos versiones de un archivo de configuración (LCS). En cada caso se muestra la traza paso a paso, las tablas construidas, la solución obtenida y el análisis de complejidad en tiempo y espacio. Entre los hallazgos principales están que Greedy deja de ser óptimo al agregar un billete de $7.000 y que el monto de 87.500 COP no puede dispensarse exacto con las denominaciones dadas (quedan 500 COP). Con Huffman se logró un ahorro del 31,61 % frente a un código de longitud fija; con Knapsack se obtuvo un ROI máximo de $20M, y con LCS se encontró una subsecuencia común de longitud 11 (`DELOP-DB-01`).
