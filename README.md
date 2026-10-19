@@ -1,7 +1,9 @@
 # Tarea — Algoritmos Ávidos y Programación Dinámica
 
 **Informe**
+
 **Jose Manuel Salgado**
+
 **Ingeniería de sistemas**
 
 Soluciones a 4 problemas reales de ingeniería, implementadas en Python (código comentado) con análisis de complejidad.
